@@ -2,7 +2,7 @@
 
 I built this React timeline component with drag-and-drop, lane organization, and inline editing. It's a modern take on visualizing time-based data.
 
-![Screenshot 2025-04-09 at 6 03 53 PM](https://github.com/user-attachments/assets/2c0f7590-bcf3-4472-94ed-b631bdb29e08)
+![Screenshot 2025-04-09 at 6 57 17 PM](https://github.com/user-attachments/assets/7d708ead-1a19-422d-a341-5309e194f9a0)
 
 ## What I like about my implementation
 
