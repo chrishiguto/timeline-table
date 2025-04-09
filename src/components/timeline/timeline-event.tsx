@@ -21,9 +21,10 @@ export function TimelineEvent({
   onUpdate,
 }: TimelineEventProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState(event.title);
+
+  const inputId = `event-input-${event.id}`;
 
   const { attributes, listeners, setNodeRef, transform, isDragging } =
     useDraggable({
@@ -32,11 +33,18 @@ export function TimelineEvent({
     });
 
   useEffect(() => {
-    if (isEditing && inputRef.current) {
-      inputRef.current.focus();
-      inputRef.current.select();
+    if (isEditing) {
+      setTimeout(() => {
+        const inputElement = document.getElementById(
+          inputId
+        ) as HTMLInputElement;
+        if (inputElement) {
+          inputElement.focus();
+          inputElement.select();
+        }
+      }, 10);
     }
-  }, [isEditing]);
+  }, [isEditing, inputId]);
 
   const getEventPosition = () => {
     const startDay = startOfDay(startDate);
@@ -70,14 +78,8 @@ export function TimelineEvent({
     };
   };
 
-  const {
-    left,
-    width,
-    isTruncatedStart,
-    isTruncatedEnd,
-    startDay,
-    shouldRender,
-  } = getEventPosition();
+  const { left, width, isTruncatedStart, isTruncatedEnd, shouldRender } =
+    getEventPosition();
 
   if (!shouldRender) {
     return null;
@@ -156,13 +158,14 @@ export function TimelineEvent({
       >
         {isEditing ? (
           <Input
-            ref={inputRef}
+            id={inputId}
             value={editValue}
             onChange={(e) => setEditValue(e.target.value)}
             onBlur={saveChanges}
             onKeyDown={handleKeyDown}
             className="h-7 px-1 bg-transparent border-none shadow-none focus-visible:ring-1 focus-visible:ring-offset-0"
             onClick={(e) => e.stopPropagation()}
+            autoFocus
           />
         ) : (
           <div className="font-medium truncate">{event.title}</div>
