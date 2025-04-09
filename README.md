@@ -28,7 +28,7 @@ Parcel wasn't the best choice with Tailwind - it made development cycles slower 
 
 ### Feature priorities
 
-I started building a resize feature but scrapped it because of UX concerns. In hindsight, I should've gone with a more MVP approach - launch with core features, get feedback, then iterate. Would've saved some time and maybe delivered a more user-focused experience.
+I began developing a resize functionality but abandoned it due to UX concerns. Looking back, I should've implemented the simplest possible resize solution rather than overcomplicating it. This would have saved development time while still meeting the nice to have requirement, allowing me to deliver value sooner and refine based on actual usage patterns.
 
 ### Interaction improvements
 
@@ -66,4 +66,4 @@ I'd test with larger datasets to find optimization opportunities. Reducing unnec
 
 I'm generally happy with how this turned out - it's intuitive, accessible, and performs well. There's room for improvement in the tooling and some features, but it's a solid foundation to build on.
 
-I still think the MVP approach is the way to go - ship core functionality, get feedback, then refine based on what users actually need.
+I think the MVP approach is usually the way to go - ship core functionality, get feedback, then refine based on what users actually need.
